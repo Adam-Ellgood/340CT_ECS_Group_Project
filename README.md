@@ -8,3 +8,5 @@ Great work so far on the project team. Now lets begin to show the versioning and
 (Adam) Version 2 had been added onto the pull request from version 1. Aaron, we will need to collaborate to integrate your functionality of File upload. Any issues we can discuss and collaborate.
 
 (Aaron) Reviewed code from Adam of the file upload. I have now produced code to retrieve the file uploaded, back from the database. This can be found in the forks of the project. Adam, please take a look as we will soon need to come together to integrate our code.
+
+(Adam) Myself and Aaron have now come together to integrate our chosen functionality team. We now have a functioning file upload and retrieve functionality to a local database. I feel we can integrate with Mustafa for the login of the application. 
