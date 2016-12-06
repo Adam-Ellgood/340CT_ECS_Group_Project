@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            cn=DriverManager.getConnection("jdbc:mysql://localhost:3300/ecs_database?zeroDateTimeBehavior=convertToNull","root","");
+            cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecs_database?zeroDateTimeBehavior=convertToNull","root","");
             st=cn.createStatement();
             JOptionPane.showMessageDialog(null, "Connected");
         } catch (Exception e){
@@ -175,7 +175,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnStaffLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffLogin1ActionPerformed
         try {
-            String sql=" select *from staff where username = '"+txtStaffUser1.getText()+"'and password = '"+String.valueOf(txtAdminPass1.getPassword())+"'";
+            String sql=" select *from admin where username = '"+txtStaffUser1.getText()+"'and password = '"+String.valueOf(txtStaffPass1.getPassword())+"'";
             ResultSet rss=st.executeQuery(sql);
             if (rss.next()) {
                 Modules_Upload = new Module_Upload();
