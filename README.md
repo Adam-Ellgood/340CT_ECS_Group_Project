@@ -12,3 +12,5 @@ Great work so far on the project team. Now lets begin to show the versioning and
 (Adam) Myself and Aaron have now come together to integrate our chosen functionality team. We now have a functioning file upload and retrieve functionality to a local database. I feel we can integrate with Mustafa for the login of the application. 
 
 (Mustafa) I have added version 1 of the login code, feel free to add any comments.
+
+(Adam) Good work today Mustafa and Aaron, I am glad the login functionality and the file upload and retrieve are now integrated. Lets try and encourage the others functionality to be integrated in the remaining days of our final sprint. Thank you.
