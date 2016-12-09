@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Staff_Module extends javax.swing.JFrame {
 
-    Connection conn=null;
+    Connection conn=null; //declare conn as Connection
     PreparedStatement pst=null;
    
     
@@ -213,29 +213,27 @@ public class Staff_Module extends javax.swing.JFrame {
     private void savebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebuttonActionPerformed
         // TODO add your handling code here:#
         
-        try{
-         String sql = "Insert into courseworkdetails (modulecode, moduletitle, moduletutor, courseworkno, courseworktitle, issuedate, duedate, duetime, assessment, modulemark) values (?,?,?,?,?,?,?,?,?,?)";
-         //Class.forName("com.mysql.jdbc.Driver");
-         conn=DriverManager.getConnection("jdbc:derby://localhost:1527/COURSEWORKDETAILS","nbuser", "nbuser");
-         pst=conn.prepareStatement(sql);
-         pst = conn.prepareStatement(sql);
-         pst.setString(1, txt_moduleCode.getText());
-         pst.setString(2, txt_moduleTitle.getText());
-         pst.setString(3, txt_moduleTutor.getText());
-         pst.setString(4, txt_courseworkNo.getText());
-         pst.setString(5, txt_courseworkTitle.getText());
-         pst.setString(6, txt_issueDate.getText());
-         pst.setString(7, txt_dueDate.getText());
-         pst.setString(8, txt_dueTime.getText());
-         pst.setString(9, txt_assessmentType.getText());
-         pst.setString(10, txt_moduleMark.getText());
+        try{ //try block
+         String sql = "Insert into courseworkdetails (ModuleCode, ModuleTitle, ModuleTutor, CourseworkNum, CourseworkTitle, IssueDate, DueDate, DueTime, AssessmentType, ModuleMark) values (?,?,?,?,?,?,?,?,?,?)";
+         conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecs_database?zeroDateTimeBehavior=convertToNull","root",""); //connect to the database
+         pst = conn.prepareStatement(sql); 
+         pst.setString(1, txt_moduleCode.getText()); //get module code and set to module code
+         pst.setString(2, txt_moduleTitle.getText()); // get module title and set to module title 
+         pst.setString(3, txt_moduleTutor.getText()); // get module tutor and set to module tutor 
+         pst.setString(4, txt_courseworkNo.getText()); // get coursework number and set to coursework number
+         pst.setString(5, txt_courseworkTitle.getText()); // get coursework title and set to coursework title 
+         pst.setString(6, txt_issueDate.getText()); // get issue date and set to issue date 
+         pst.setString(7, txt_dueDate.getText()); // get due date and set to due date
+         pst.setString(8, txt_dueTime.getText()); // get due time and set to due time
+         pst.setString(9, txt_assessmentType.getText()); // get assessment type and set to assessment type
+         pst.setString(10, txt_moduleMark.getText()); // get module mark and set to module mark
          pst.execute();
          
-         JOptionPane.showMessageDialog(null, "saved");
+         JOptionPane.showMessageDialog(null, "saved"); // display saved dialog
         
         } 
         
-        catch(Exception e)
+        catch(Exception e) //catch block
         {
          JOptionPane.showMessageDialog(null, e); 
     }//GEN-LAST:event_savebuttonActionPerformed
