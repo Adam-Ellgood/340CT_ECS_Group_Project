@@ -1,6 +1,7 @@
 
 package uniqueid;
 
+// additional imports will be needed to support the database and sql configurations.
 import java.util.UUID;
 
 /**
@@ -10,6 +11,9 @@ import java.util.UUID;
  * This code will not compile until the unique reference functionality is imbedded within the Module_Upload.java file.
  */
 public class GenerateUniqueNumberTest extends javax.swing.JDialog {
+    // required varibles declared for database connection
+    Connection conn=null;
+    PreparedStatement pst=null;
     
     private void btnUpload340CTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
@@ -31,7 +35,27 @@ public class GenerateUniqueNumberTest extends javax.swing.JDialog {
         txt_refNum.setVisible(true);
         
         //SQL required here
-        //Connection to database here
+        try{
+        
+         String sql = "update TABLE set COLUMN ="+ txt_refNum.getText()+"where id = " + txtID340CT.getText();
+
+        //Connection to database initiated
+        //please integrate by updating with the backend database 
+         conn=DriverManager.getConnection("jdbc:mysql://localhost:????/database ","username","password");
+         pst=conn.prepareStatement(sql);
+         pst = conn.prepareStatement(sql);
+         //get the text value from textbox refNum, this value will be stored in the database against the user who is signed in   
+         pst.setString(1, txt_refNum.getText());
+        
+         //display message box to user, confirming the unique reference number to them.
+         JOptionPane.showMessageDialog(null, "Your Coursework Unique Reference Number Has Been Logged.");
+    
+        }  
+           
+         catch(Exception e)
+        {
+         JOptionPane.showMessageDialog(null, e); 
+        }
         
         //Java built function, calls write method to begin the process of uploading the users file.
         try {
