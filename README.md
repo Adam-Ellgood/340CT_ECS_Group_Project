@@ -14,3 +14,5 @@ Great work so far on the project team. Now lets begin to show the versioning and
 (Mustafa) I have added version 1 of the login code, feel free to add any comments.
 
 (Adam) Good work today Mustafa, sorry I missed your login version 1 pull request. I had noticed it has now been closed? I have looked at your version 2 login pull request and I have noticed some source code issues. I have made the appropriate requests to ensure smooth integration within the master application. So far it is looking like we will have the back end database, front end user forms, login student and staff, student file upload functionality and file download functionality. 
+
+(Steph) I created a new pull request which is version 1 of the unique reference functionality. With Adam's help this has now been integrated with both the upload and login functionality. 
