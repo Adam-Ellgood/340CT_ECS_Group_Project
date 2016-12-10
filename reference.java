@@ -3,6 +3,13 @@ package uniqueid;
 
 // additional imports will be needed to support the database and sql configurations.
 import java.util.UUID;
+//adam - I have added the required imports for this functionality to work
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,11 +44,11 @@ public class GenerateUniqueNumberTest extends javax.swing.JDialog {
         //SQL required here
         try{
         
-         String sql = "update TABLE set COLUMN ="+ txt_refNum.getText()+"where id = " + txtID340CT.getText();
+         String sql = "update users set 340CTSubmissionRef ="+ txt_refNum.getText()+"where id = " + txtID340CT.getText();
 
         //Connection to database initiated
         //please integrate by updating with the backend database 
-         conn=DriverManager.getConnection("jdbc:mysql://localhost:????/database ","username","password");
+         conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecs_database?zeroDateTimeBehavior=convertToNull","root","");
          pst=conn.prepareStatement(sql);
          pst = conn.prepareStatement(sql);
          //get the text value from textbox refNum, this value will be stored in the database against the user who is signed in   
@@ -63,8 +70,7 @@ public class GenerateUniqueNumberTest extends javax.swing.JDialog {
         } catch (Exception ex) {
             Logger.getLogger(Module_Upload.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
