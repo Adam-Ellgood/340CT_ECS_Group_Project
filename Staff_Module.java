@@ -1,5 +1,7 @@
 package Login;
 
+//importing modules that will be used
+
 import Modules.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Staff_Module extends javax.swing.JFrame {
 
     Connection conn=null; //declare conn as Connection
-    PreparedStatement pst=null;
+    PreparedStatement pst=null; //declare prepared statement
    
     
     /**
@@ -214,7 +216,8 @@ public class Staff_Module extends javax.swing.JFrame {
         // TODO add your handling code here:#
         
         try{ //try block
-         String sql = "Insert into courseworkdetails (ModuleCode, ModuleTitle, ModuleTutor, CourseworkNum, CourseworkTitle, IssueDate, DueDate, DueTime, AssessmentType, ModuleMark) values (?,?,?,?,?,?,?,?,?,?)";
+         String sql = "Insert into courseworkdetails (ModuleCode, ModuleTitle, ModuleTutor, CourseworkNum, 
+                    + "CourseworkTitle, IssueDate, DueDate, DueTime, AssessmentType, ModuleMark) values (?,?,?,?,?,?,?,?,?,?)";
          conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecs_database?zeroDateTimeBehavior=convertToNull","root",""); //connect to the database
          pst = conn.prepareStatement(sql); 
          pst.setString(1, txt_moduleCode.getText()); //get module code and set to module code
